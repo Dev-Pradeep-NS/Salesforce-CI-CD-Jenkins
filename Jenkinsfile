@@ -22,7 +22,7 @@ pipeline {
                 script {
                     def rc = sh(script: 'openssl aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -k ${SERVER_KEY_PASSWORD} -pbkdf2', returnStatus: true)
                     if (rc != 0) {
-                        error 'Could not create scratch org'
+                        error 'Could not decrypt the server key'
                     }
                 }
             }
