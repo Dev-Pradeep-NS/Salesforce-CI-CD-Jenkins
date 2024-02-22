@@ -30,15 +30,13 @@ pipeline {
 
         stage('Authorize DevHub') {
             steps {
-                withCredentials([file(credentialsId: env.SERVER_KEY_CREDENTALS_ID, variable: 'server_key_file')]) {
-                    script {
-                        def rc = sh(script: 'sf org login jwt --client-id ${SF_CONSUMER_KEY} --jwt-key-file assets/server.key --username ${SF_USERNAME} --alias pradeepDevOrg --set-default-dev-hub', returnStatus: true)
-                        if (rc != 0) {
-                            error 'Salesforce dev hub org authorization failed.'
-                        }
+                script {
+                    def rc = sh(script: 'sf org login jwt --client-id ${SF_CONSUMER_KEY} --jwt-key-file assets/server.key --username ${SF_USERNAME} --alias pradeepDevOrg --set-default-dev-hub', returnStatus: true)
+                    if (rc != 0) {
+                        error 'Salesforce dev hub org authorization failed.'
                     }
                 }
-            }
+            }  
         }
 
         stage('Create a new Scratch org') {
