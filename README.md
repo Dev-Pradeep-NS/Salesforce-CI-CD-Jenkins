@@ -22,6 +22,7 @@ This guide outlines the steps to integrate Jenkins, a popular automation server,
      - **SF_USERNAME**: The username for the Salesforce Developer Hub org.
      - **SF_INSTANCE_URL**: The login URL of the Salesforce instance that hosts the Dev Hub org. Update to My Domain login URL if applicable.
      - **SF_CONSUMER_KEY**: The Consumer Key generated for the Connected App.
+     - **SERVER_KEY_PASSWORD**: The password used to encrypt the server.key.enc file.
 
 3. **Download Salesforce CLI in Jenkins User:**
    - Switch to the Jenkins user:
